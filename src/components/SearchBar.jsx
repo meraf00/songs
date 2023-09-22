@@ -6,8 +6,8 @@ import { StyledButton } from './styles/Button.styled';
 
 const searchBar = css`
   position: relative;
-  background: red;
-  width: 20rem;
+  width: 100%;
+  max-width: 25rem;
 `;
 
 const absolute = css`
