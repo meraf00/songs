@@ -19,8 +19,7 @@ function* getUserSaga() {
       headers: { Authorization: localStorage.getItem('token') },
     });
 
-    if (response.status == 200) {
-      console.log('!!!!!!!!!1');
+    if (response.status === 200) {
       yield put(getUserSuccessAction(response.data));
     } else {
       yield put(authErrorAction(response.data.message));
@@ -45,7 +44,7 @@ function* loginSaga({ paylaod: { email, password } }) {
       }
     );
 
-    if (response.status == 200) {
+    if (response.status === 200) {
       localStorage.setItem('token', response.data.token);
       yield put(getUserAction());
       yield put(loginSuccessAction());
@@ -67,7 +66,7 @@ function* createUserSaga({ payload: { password, email } }) {
       }
     );
 
-    if (response.status == 201) {
+    if (response.status === 201) {
       localStorage.setItem('token', response.data.token);
       yield put(getUserAction());
       yield put(createUserSuccessAction());
@@ -85,7 +84,7 @@ function* logoutSaga() {
       headers: { Authorization: localStorage.getItem('token') },
     });
 
-    if (response.status == 200) {
+    if (response.status === 200) {
       yield put(getUserSuccessAction(response.data));
     } else {
       yield put(authErrorAction(response.data.message));

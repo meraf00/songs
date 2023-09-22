@@ -8,6 +8,7 @@ export const StyledInput = styled.input`
   padding: 0.5rem 1rem;
   caret-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.white};
+  box-sizing: border-box;
 
   &:focus {
     border-color: rgb(129, 129, 129);

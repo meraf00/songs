@@ -1,7 +1,7 @@
 import App from './App';
 import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from './layout/ProtectedRoute';
-import { LoginPage, SignupPage } from './pages';
+import { HomePage, LoginPage, SignupPage } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -10,7 +10,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <>Home</>,
+        element: <HomePage />,
       },
       {
         path: '/login',

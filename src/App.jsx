@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { GlobalStyles } from './components/styles/Global.styled';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserAction } from './store/auth/slice';
 
@@ -25,7 +25,7 @@ const theme = {
 };
 
 const App = () => {
-  const { isLoggedIn } = useSelector((state) => state.auth);
+  // const { isLoggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
