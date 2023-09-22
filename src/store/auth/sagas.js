@@ -67,7 +67,7 @@ function* createUserSaga({ payload: { password, email } }) {
       }
     );
 
-    if (response.status == 200) {
+    if (response.status == 201) {
       localStorage.setItem('token', response.data.token);
       yield put(getUserAction());
       yield put(createUserSuccessAction());
