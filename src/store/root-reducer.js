@@ -1,5 +1,7 @@
 import authReducer from './auth/slice';
 
-const rootReducer = {};
+const rootReducer = {
+  auth: authReducer,
+};
 
 export default rootReducer;
