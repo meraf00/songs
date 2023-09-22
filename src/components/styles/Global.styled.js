@@ -15,6 +15,19 @@ export const GlobalStyles = () => {
         html {
           scroll-behavior: smooth;
         }
+
+        body {
+          background-color: #181918;
+          background: linear-gradient(120deg, #181918 0%, 75%, #000000 100%);
+
+          background-repeat: no-repeat;
+          background-size: 100%;
+          min-height: 100vh;
+          color: white;
+
+          position: relative;
+          overflow: overlay;
+        }
       `}
     />
   );

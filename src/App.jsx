@@ -1,4 +1,4 @@
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { ThemeProvider } from '@emotion/react';
 import { GlobalStyles } from './components/styles/Global.styled';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,8 +15,12 @@ const theme = {
   colors: {
     white: '#fff',
     black: '#000',
-    orange: '#ff631c',
-    darkOrange: '#ff501d',
+    // orange: '#ff631c',
+    // darkOrange: '#ff501d',
+    background: '#181818',
+    blue: '#376aed',
+    saturatedBlue: '#2151cd',
+    gray: '#474747',
   },
 };
 
