@@ -1,7 +1,6 @@
 import axios from 'axios';
 import {
   authErrorAction,
-  createUserAction,
   createUserSuccessAction,
   getUserAction,
   getUserSuccessAction,
