@@ -20,6 +20,7 @@ function* getUserSaga() {
     });
 
     if (response.status == 200) {
+      console.log('!!!!!!!!!1');
       yield put(getUserSuccessAction(response.data));
     } else {
       yield put(authErrorAction(response.data.message));
@@ -95,10 +96,10 @@ function* logoutSaga() {
 }
 
 function* watchAuth() {
-  takeLatest(GET_USER, getUserSaga);
-  takeLatest(LOGIN, loginSaga);
-  takeLatest(SIGNUP, createUserSaga);
-  takeLatest(LOGOUT, logoutSaga);
+  yield takeLatest(GET_USER, getUserSaga);
+  yield takeLatest(LOGIN, loginSaga);
+  yield takeLatest(SIGNUP, createUserSaga);
+  yield takeLatest(LOGOUT, logoutSaga);
 }
 
 export default watchAuth;

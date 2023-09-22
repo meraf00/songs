@@ -5,7 +5,7 @@ const authInitialState = {
   isLoggedIn: false,
   user: {
     data: null,
-    isLoading: false,
+    isLoading: true,
     errors: '',
   },
 };
@@ -19,10 +19,12 @@ export const authSlice = createSlice({
       state.user.errors = '';
     },
 
-    getUserSuccessAction: (state, { payload: { user } }) => {
-      state.user.data = user;
+    getUserSuccessAction: (state, { payload }) => {
+      state.user.data = payload;
+      state.isLoggedIn = true;
       state.user.isLoading = false;
       state.user.errors = '';
+      console.log(state.isLoggedIn, '#######');
     },
 
     loginAction: (state, { payload: { email, password } }) => {
