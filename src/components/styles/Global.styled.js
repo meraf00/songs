@@ -10,6 +10,7 @@ export const GlobalStyles = () => {
           padding: 0;
           margin: 0;
           font-family: 'Poppins', sans-serif;
+          box-sizing: border-box;
         }
 
         html {
@@ -21,12 +22,13 @@ export const GlobalStyles = () => {
           background: linear-gradient(120deg, #181918 0%, 75%, #000000 100%);
 
           background-repeat: no-repeat;
-          background-size: 100%;
+          background-size: cover;
           min-height: 100vh;
           color: white;
 
+          background-attachment: fixed;
+
           position: relative;
-          overflow: overlay;
         }
       `}
     />

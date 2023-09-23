@@ -14,6 +14,9 @@ const instance = axios.create({
 });
 
 function* getUserSaga() {
+  if (!localStorage.getItem('token')) {
+    yield put(authErrorAction("You're not logged in"));
+  }
   try {
     const response = yield instance.get('/', {
       headers: { Authorization: localStorage.getItem('token') },

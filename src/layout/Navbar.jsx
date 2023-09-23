@@ -4,6 +4,7 @@ import { navbar, Logo } from '../components/styles/Navbar.styled';
 import { StyledButton } from '../components/styles/Button.styled';
 import { css } from '@emotion/react';
 import { useSelector } from 'react-redux';
+import { StyledAvatar } from '../components/styles/Avatar.styled';
 
 const flex = css`
   display: flex;
@@ -26,7 +27,9 @@ export const Navbar = () => {
 
       <div css={flex}>
         {isLoggedIn ? (
-          ''
+          <StyledAvatar>
+            {(data.email[0] + data.email[1]).toUpperCase()}
+          </StyledAvatar>
         ) : (
           <>
             <StyledButton>Login</StyledButton>

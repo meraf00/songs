@@ -7,6 +7,7 @@ export const navbar = css`
   align-items: center;
   padding: 0.7rem 1rem;
   box-shadow: rgba(255, 255, 255, 0.042) 0.1rem 0.05rem 0.2rem 0.2rem;
+  background: #181818;
 `;
 
 export const Logo = styled.div`

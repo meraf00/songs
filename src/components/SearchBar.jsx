@@ -3,6 +3,8 @@
 import { css } from '@emotion/react';
 import { StyledInput } from './styles/Input.styled';
 import { StyledButton } from './styles/Button.styled';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 const searchBar = css`
   position: relative;
@@ -14,8 +16,8 @@ const absolute = css`
   position: absolute;
   top: 0;
   right: 0;
+  bottom: 0;
   height: 100%;
-  display: flex;
 `;
 
 export const SearchBar = () => {
@@ -24,10 +26,15 @@ export const SearchBar = () => {
       <StyledInput
         css={css`
           width: 100%;
+          padding-top: 0.6rem;
+          padding-bottom: 0.6rem;
+          padding-right: 4rem;
         `}
       />
       <div css={absolute}>
-        <StyledButton></StyledButton>
+        <StyledButton>
+          <FontAwesomeIcon icon={faSearch} />
+        </StyledButton>
       </div>
     </div>
   );

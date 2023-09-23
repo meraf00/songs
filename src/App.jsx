@@ -4,6 +4,7 @@ import { GlobalStyles } from './components/styles/Global.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserAction } from './store/auth/slice';
+import { PlayerBar } from './components/PlayerBar';
 
 const theme = {
   font: {},
@@ -36,6 +37,7 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <GlobalStyles />
       <Outlet />
+      <PlayerBar />
     </ThemeProvider>
   );
 };
