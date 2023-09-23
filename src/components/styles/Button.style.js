@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Button } from '../Button';
 
-export const StyledButton = styled.button`
+export const StyledButton = styled(Button)`
   border: none;
   border-radius: ${({ theme }) => theme.dimensions.borderRadius};
   background-color: ${({ theme }) => theme.colors.blue};
@@ -9,5 +10,10 @@ export const StyledButton = styled.button`
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.saturatedBlue};
+  }
+
+  &:disabled {
+    background-color: ${({ theme }) => theme.colors.gray};
+    cursor: not-allowed;
   }
 `;

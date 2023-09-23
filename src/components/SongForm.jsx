@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyledInput } from '../components/styles/Input.styled';
-import { StyledButton } from '../components/styles/Button.styled';
+import { StyledButton } from './styles/Button.style';
 
-export const SongForm = ({ className, buttonLabel, onSubmit }) => {
+export const SongForm = ({ className, buttonLabel, onSubmit, disabled }) => {
   return (
     <form className={className} onSubmit={onSubmit}>
       <div>
@@ -26,7 +26,7 @@ export const SongForm = ({ className, buttonLabel, onSubmit }) => {
         />
       </div>
       <div>
-        <StyledButton>{buttonLabel}</StyledButton>
+        <StyledButton disabled={disabled}>{buttonLabel}</StyledButton>
       </div>
     </form>
   );

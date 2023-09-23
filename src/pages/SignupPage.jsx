@@ -1,4 +1,4 @@
-import { StyledButton } from '../components/styles/Button.styled';
+import { StyledButton } from '../components/styles/Button.style';
 import { FullScreenContainer } from '../components/styles/Container.styled';
 import { StyledInput } from '../components/styles/Input.styled';
 import { LoginContainer } from '../components/styles/LoginContainer.styled';

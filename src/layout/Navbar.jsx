@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { Link } from 'react-router-dom';
 import { navbar, Logo } from '../components/styles/Navbar.styled';
-import { StyledButton } from '../components/styles/Button.styled';
+import { StyledButton } from '../components/styles/Button.style';
 import { css } from '@emotion/react';
 import { useSelector } from 'react-redux';
 import { StyledAvatar } from '../components/styles/Avatar.styled';

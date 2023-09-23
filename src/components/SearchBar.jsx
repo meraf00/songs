@@ -2,7 +2,7 @@
 
 import { css } from '@emotion/react';
 import { StyledInput } from './styles/Input.styled';
-import { StyledButton } from './styles/Button.styled';
+import { StyledButton } from './styles/Button.style';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 

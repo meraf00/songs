@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { getSongsAction, songSuccessAction, songErrorAction } from './slice';
+import {
+  getSongsAction,
+  getSongsSuccessAction,
+  getSongsErrorAction,
+  getMySongsSuccessAction,
+  getMySongsErrorAction,
+  createSongErrorAction,
+  createSongSuccessAction,
+} from './slices';
 import { put, takeLatest } from 'redux-saga/effects';
 import { CREATE_SONG, GET_MY_SONGS, GET_SONGS } from './types';
 
@@ -11,15 +19,13 @@ function* getSongsSaga() {
   try {
     const response = yield instance.get('/');
 
-    console.log(response);
-
     if (response.status === 200) {
-      yield put(songSuccessAction(response.data.results));
+      yield put(getSongsSuccessAction(response.data.results));
     } else {
-      yield put(songErrorAction(response.data.message));
+      yield put(getSongsErrorAction(response.data.message));
     }
   } catch (error) {
-    yield put(songErrorAction(error));
+    yield put(getSongsErrorAction(error));
   }
 }
 
@@ -32,18 +38,18 @@ function* getMySongsSaga() {
     });
 
     if (response.status === 200) {
-      yield put(songSuccessAction(response.data.results));
+      yield put(getMySongsSuccessAction(response.data.results));
     } else {
-      yield put(songErrorAction(response.data.message));
+      yield put(getMySongsErrorAction(response.data.message));
     }
   } catch (error) {
-    yield put(songErrorAction(error));
+    yield put(getMySongsErrorAction(error));
   }
 }
 
 function* createSongSaga({ payload }) {
   if (!localStorage.getItem('token')) {
-    yield put(songErrorAction("You're not logged in"));
+    yield put(createSongErrorAction("You're not logged in"));
   }
 
   try {
@@ -55,12 +61,12 @@ function* createSongSaga({ payload }) {
     });
 
     if (response.status === 201) {
-      yield put(songSuccessAction(response.data));
+      yield put(createSongSuccessAction(response.data));
     } else {
-      yield put(songErrorAction(response.data.message));
+      yield put(createSongErrorAction(response.data.message));
     }
   } catch (error) {
-    yield put(songErrorAction(error));
+    yield put(createSongErrorAction(error));
   }
 }
 

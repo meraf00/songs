@@ -6,13 +6,13 @@ import { StyledCenter } from '../components/styles/Center.style';
 import { StyledSongList } from '../components/styles/SongList.style';
 import { StyledSongCard } from '../components/styles/SongCard.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMySongsAction } from '../store/songs/slice';
 import { StyledAddSongCard } from '../components/styles/AddSongCard.style';
 import { Link } from 'react-router-dom';
+import { getMySongsAction } from '../store/songs/slices/getMy';
 
 export const PlaylistPage = () => {
   const dispatch = useDispatch();
-  const { data, isLoading } = useSelector((state) => state.song.songs);
+  const { data, isLoading } = useSelector((state) => state.mySongs.songs);
 
   useEffect(() => {
     dispatch(getMySongsAction());
