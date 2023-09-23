@@ -12,10 +12,7 @@ const flex = css`
 `;
 
 export const Navbar = () => {
-  const {
-    isLoggedIn,
-    user: { data },
-  } = useSelector((state) => state.auth);
+  const { data, isLoggedIn } = useSelector((state) => state.user.user);
 
   return (
     <div css={navbar}>

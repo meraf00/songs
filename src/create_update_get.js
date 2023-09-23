@@ -8,7 +8,9 @@ import {
 import { useParams } from 'react-router-dom';
 
 const App = () => {
-  const { data, isLoading, errors } = useSelector((state) => state.createSong.song);
+  const { data, isLoading, errors } = useSelector(
+    (state) => state.createSong.song
+  );
 
   const [file, setFile] = useState(null);
 
@@ -27,8 +29,6 @@ const App = () => {
 
     dispatch(createSongAction({ formData }));
   };
-
-  console.log(data);
 
   return (
     <>

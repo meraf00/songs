@@ -5,9 +5,9 @@ import { ThemeProvider, css } from '@emotion/react';
 import { GlobalStyles } from './components/styles/Global.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { getUserAction } from './store/auth/slice';
 import { PlayerBar } from './components/PlayerBar';
 import { Navbar } from './layout/Navbar';
+import { getUserAction } from './store/auth/slices';
 
 const theme = {
   font: {},

@@ -1,11 +1,14 @@
 import axios from 'axios';
 import {
-  authErrorAction,
+  createUserErrorAction,
   createUserSuccessAction,
   getUserAction,
+  getUserErrorAction,
   getUserSuccessAction,
+  loginErrorAction,
   loginSuccessAction,
-} from './slice';
+  logoutSuccessAction,
+} from './slices';
 import { put, takeLatest } from 'redux-saga/effects';
 import { GET_USER, LOGIN, LOGOUT, SIGNUP } from './types';
 
@@ -15,7 +18,7 @@ const instance = axios.create({
 
 function* getUserSaga() {
   if (!localStorage.getItem('token')) {
-    yield put(authErrorAction("You're not logged in"));
+    yield put(getUserErrorAction("You're not logged in"));
   }
   try {
     const response = yield instance.get('/', {
@@ -25,10 +28,10 @@ function* getUserSaga() {
     if (response.status === 200) {
       yield put(getUserSuccessAction(response.data));
     } else {
-      yield put(authErrorAction(response.data.message));
+      yield put(getUserErrorAction(response.data.message));
     }
   } catch (error) {
-    yield put(authErrorAction(error));
+    yield put(getUserErrorAction(error));
   }
 }
 
@@ -52,10 +55,10 @@ function* loginSaga({ payload: { email, password } }) {
       yield put(getUserAction());
       yield put(loginSuccessAction());
     } else {
-      yield put(authErrorAction(response.data.message));
+      yield put(loginErrorAction(response.data.message));
     }
   } catch (error) {
-    yield put(authErrorAction(error));
+    yield put(loginErrorAction(error));
   }
 }
 
@@ -72,29 +75,20 @@ function* createUserSaga({ payload: { password, email } }) {
     if (response.status === 200) {
       localStorage.setItem('token', response.data.token);
       yield put(getUserAction());
-      yield put(createUserSuccessAction());
+      yield put(createUserSuccessAction(response.data));
     } else {
-      yield put(authErrorAction(response.data.message));
+      yield put(createUserErrorAction(response.data.message));
     }
   } catch (error) {
-    yield put(authErrorAction(error));
+    const msg = error.response.data.message ?? "Couldn't create user";
+    yield put(createUserErrorAction(msg));
   }
 }
 
 function* logoutSaga() {
-  try {
-    const response = yield instance.get('/', {
-      headers: { Authorization: localStorage.getItem('token') },
-    });
+  localStorage.removeItem('token');
 
-    if (response.status === 200) {
-      yield put(getUserSuccessAction(response.data));
-    } else {
-      yield put(authErrorAction(response.data.message));
-    }
-  } catch (error) {
-    yield put(authErrorAction(error));
-  }
+  yield put(logoutSuccessAction());
 }
 
 function* watchAuth() {
