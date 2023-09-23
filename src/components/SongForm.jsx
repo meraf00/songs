@@ -2,29 +2,31 @@ import React from 'react';
 import { StyledInput } from '../components/styles/Input.styled';
 import { StyledButton } from '../components/styles/Button.styled';
 
-export const SongForm = () => {
+export const SongForm = ({ className, buttonLabel, onSubmit }) => {
   return (
-    <form>
+    <form className={className} onSubmit={onSubmit}>
       <div>
-        <StyledInput placeholder="Title" />
+        <StyledInput placeholder="Title" name="title" />
       </div>
       <div>
-        <StyledInput placeholder="Artist" />
+        <StyledInput placeholder="Artist" name="artist" />
       </div>
       <div>
-        <StyledInput placeholder="Album" />
+        <StyledInput placeholder="Album" name="album" />
       </div>
       <div>
-        <StyledInput placeholder="Year" />
+        <StyledInput placeholder="Year" name="release_date" />
       </div>
       <div>
-        <StyledInput placeholder="Title" />
+        <StyledInput
+          placeholder="File"
+          name="file"
+          type="file"
+          accept=".ogg,.mp3,.wav"
+        />
       </div>
       <div>
-        <StyledInput placeholder="Title" type="file" accept=".ogg,.mp3,.wav" />
-      </div>
-      <div>
-        <StyledButton>Upload</StyledButton>
+        <StyledButton>{buttonLabel}</StyledButton>
       </div>
     </form>
   );

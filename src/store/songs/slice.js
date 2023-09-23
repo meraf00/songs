@@ -33,13 +33,13 @@ export const songSlice = createSlice({
       state.songs.errors = '';
     },
 
-    createSongAction: (state, { paylaod: { song } }) => {
+    createSongAction: (state, { payload }) => {
       state.isLoggedIn = true;
       state.songs.isLoading = false;
       state.songs.errors = '';
     },
 
-    updateSongAction: (state, { payload: { song } }) => {
+    updateSongAction: (state, { payload }) => {
       state.songs.isLoading = true;
       state.songs.errors = '';
     },
