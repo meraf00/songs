@@ -4,7 +4,6 @@ import { Navbar } from '../layout/Navbar';
 import { SearchBar } from '../components/SearchBar';
 import { css } from '@emotion/react';
 import { Sidebar } from '../layout/Sidebar';
-import { PlayerBar } from '../components/PlayerBar';
 
 const grid = css`
   display: grid;
@@ -41,7 +40,6 @@ export const HomePage = () => {
           <SearchBar></SearchBar>
         </div>
       </div>
-      
     </div>
   );
 };

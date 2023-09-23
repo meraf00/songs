@@ -3,7 +3,7 @@
 import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
-import { Progress, ProgressBar } from './styles/ProgressBar';
+import { Progress, ProgressBar } from './styles/ProgressBar.styled';
 
 const playerBar = css`
   position: fixed;
