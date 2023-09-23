@@ -44,8 +44,8 @@ export const songSlice = createSlice({
       state.songs.errors = '';
     },
 
-    songSuccessAction: (state, { payload: { songs } }) => {
-      state.songs.date = songs;
+    songSuccessAction: (state, { payload }) => {
+      state.songs.data = payload;
       state.songs.isLoading = false;
       state.songs.errors = '';
     },

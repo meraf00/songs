@@ -9,6 +9,14 @@ import { PlayerBar } from './components/PlayerBar';
 const theme = {
   font: {},
 
+  breakpoints: {
+    xs: '320px',
+    sm: '425px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+  },
+
   dimensions: {
     borderRadius: '5px',
   },
