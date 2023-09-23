@@ -15,6 +15,7 @@ export const updateSongSlice = createSlice({
   reducers: {
     updateSongAction: (state, { payload }) => {
       state.song.isLoading = true;
+      state.song.data = null;
       state.song.errors = '';
     },
 

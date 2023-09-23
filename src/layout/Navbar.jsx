@@ -34,8 +34,12 @@ export const Navbar = () => {
           </Link>
         ) : (
           <>
-            <StyledButton>Login</StyledButton>
-            <StyledButton>Sign up</StyledButton>
+            <Link to="/login">
+              <StyledButton>Login</StyledButton>
+            </Link>
+            <Link to="/signup">
+              <StyledButton>Sign up</StyledButton>
+            </Link>
           </>
         )}
       </div>

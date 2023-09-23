@@ -15,6 +15,7 @@ export const deleteSongSlice = createSlice({
   reducers: {
     deleteSongAction: (state, { payload }) => {
       state.song.isLoading = true;
+      state.song.data = null;
       state.song.errors = '';
     },
 

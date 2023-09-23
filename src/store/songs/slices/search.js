@@ -15,6 +15,7 @@ export const searchSongsSlice = createSlice({
   reducers: {
     searchSongsAction: (state) => {
       state.songs.isLoading = true;
+      state.songs.data = [];
       state.songs.errors = '';
     },
 
@@ -31,7 +32,10 @@ export const searchSongsSlice = createSlice({
   },
 });
 
-export const { searchSongsAction, searchSongsSuccessAction, searchSongsErrorAction } =
-  searchSongsSlice.actions;
+export const {
+  searchSongsAction,
+  searchSongsSuccessAction,
+  searchSongsErrorAction,
+} = searchSongsSlice.actions;
 
 export default searchSongsSlice.reducer;

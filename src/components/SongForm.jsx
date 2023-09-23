@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyledInput } from '../components/styles/Input.styled';
 import { StyledButton } from './styles/Button.style';
+import { StyledLoading } from './styles/Loading.style';
+import { StyledCenter } from './styles/Center.style';
 
-export const SongForm = ({ className, buttonLabel, onSubmit, disabled }) => {
+export const SongForm = ({ className, buttonLabel, onSubmit, isLoading }) => {
   return (
     <form className={className} onSubmit={onSubmit}>
       <div>
@@ -26,7 +28,13 @@ export const SongForm = ({ className, buttonLabel, onSubmit, disabled }) => {
         />
       </div>
       <div>
-        <StyledButton disabled={disabled}>{buttonLabel}</StyledButton>
+        {isLoading ? (
+          <StyledCenter>
+            <StyledLoading />
+          </StyledCenter>
+        ) : (
+          <StyledButton disabled={isLoading}>{buttonLabel}</StyledButton>
+        )}
       </div>
     </form>
   );

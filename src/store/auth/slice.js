@@ -24,10 +24,10 @@ export const authSlice = createSlice({
       state.isLoggedIn = true;
       state.user.isLoading = false;
       state.user.errors = '';
-      console.log(state.isLoggedIn, '#######');
     },
 
-    loginAction: (state, { payload: { email, password } }) => {
+    loginAction: (state, { payload }) => {
+      console.log(payload, 'payload');
       state.user.isLoading = true;
       state.user.errors = '';
     },

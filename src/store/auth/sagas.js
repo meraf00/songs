@@ -32,7 +32,7 @@ function* getUserSaga() {
   }
 }
 
-function* loginSaga({ paylaod: { email, password } }) {
+function* loginSaga({ payload: { email, password } }) {
   try {
     const response = yield instance.post(
       '/login',
@@ -69,7 +69,7 @@ function* createUserSaga({ payload: { password, email } }) {
       }
     );
 
-    if (response.status === 201) {
+    if (response.status === 200) {
       localStorage.setItem('token', response.data.token);
       yield put(getUserAction());
       yield put(createUserSuccessAction());
