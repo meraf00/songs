@@ -1,6 +1,6 @@
-export const Loading = () => {
+export const Loading = ({ className }) => {
   return (
-    <div>
+    <div className={className}>
       <div></div>
       <div></div>
       <div></div>

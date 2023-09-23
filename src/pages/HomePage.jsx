@@ -1,6 +1,5 @@
 /** @jsxImportSource @emotion/react */
 
-import { Navbar } from '../layout/Navbar';
 import { SearchBar } from '../components/SearchBar';
 import { css } from '@emotion/react';
 import { StyledSongCard } from '../components/styles/SongCard.style';
@@ -8,18 +7,9 @@ import { StyledSongList } from '../components/styles/SongList.style';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getSongsAction } from '../store/songs/slice';
-import { Loading } from '../components/Loading';
-
-const home = css`
-  display: block;
-  height: 100vh;
-`;
-
-const sticky = css`
-  position: sticky;
-  top: 0;
-  z-index: 100;
-`;
+import { StyledLoading } from '../components/styles/Loading.style';
+import { StyledCenter } from '../components/styles/Center.style';
+import { StyledContainer } from '../components/styles/Container.style';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -30,16 +20,8 @@ export const HomePage = () => {
   }, [dispatch]);
 
   return (
-    <div css={home}>
-      <div css={sticky}>
-        <Navbar />
-      </div>
-
-      <div
-        css={css`
-          padding: 2rem 2rem;
-        `}
-      >
+    <>
+      <StyledContainer>
         <SearchBar></SearchBar>
 
         <div
@@ -48,10 +30,11 @@ export const HomePage = () => {
           `}
         >
           <h2>Songs</h2>
-          <Loading />
 
           {isLoading ? (
-            <Loading />
+            <StyledCenter>
+              <StyledLoading />
+            </StyledCenter>
           ) : (
             <StyledSongList>
               {data.map((song) => (
@@ -60,7 +43,7 @@ export const HomePage = () => {
             </StyledSongList>
           )}
         </div>
-      </div>
-    </div>
+      </StyledContainer>
+    </>
   );
 };

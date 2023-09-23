@@ -13,6 +13,10 @@ export const GlobalStyles = () => {
           box-sizing: border-box;
         }
 
+        a {
+          text-decoration: none;
+        }
+
         html {
           scroll-behavior: smooth;
         }

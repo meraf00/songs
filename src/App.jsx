@@ -1,10 +1,13 @@
+/** @jsxImportSource @emotion/react */
+
 import { Outlet } from 'react-router-dom';
-import { ThemeProvider } from '@emotion/react';
+import { ThemeProvider, css } from '@emotion/react';
 import { GlobalStyles } from './components/styles/Global.styled';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { getUserAction } from './store/auth/slice';
 import { PlayerBar } from './components/PlayerBar';
+import { Navbar } from './layout/Navbar';
 
 const theme = {
   font: {},
@@ -33,8 +36,13 @@ const theme = {
   },
 };
 
+const sticky = css`
+  position: sticky;
+  top: 0;
+  z-index: 100;
+`;
+
 const App = () => {
-  // const { isLoggedIn } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -44,7 +52,12 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+
+      <div css={sticky}>
+        <Navbar />
+      </div>
       <Outlet />
+
       <PlayerBar />
     </ThemeProvider>
   );

@@ -27,9 +27,11 @@ export const Navbar = () => {
 
       <div css={flex}>
         {isLoggedIn ? (
-          <StyledAvatar>
-            {(data.email[0] + data.email[1]).toUpperCase()}
-          </StyledAvatar>
+          <Link to="/myplaylist">
+            <StyledAvatar>
+              {(data.email[0] + data.email[1]).toUpperCase()}
+            </StyledAvatar>
+          </Link>
         ) : (
           <>
             <StyledButton>Login</StyledButton>

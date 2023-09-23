@@ -1,7 +1,7 @@
 import App from './App';
 import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from './layout/ProtectedRoute';
-import { HomePage, LoginPage, SignupPage } from './pages';
+import { HomePage, LoginPage, SignupPage, PlaylistPage } from './pages';
 
 const router = createBrowserRouter([
   {
@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         element: <SignupPage />,
       },
       {
-        path: '/search',
-        element: <>Search page</>,
+        path: '/myplaylist',
+        element: <PlaylistPage />,
       },
       {
         path: '/new',

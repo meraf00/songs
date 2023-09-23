@@ -39,12 +39,7 @@ export const StyledSongCard = styled(SongCard)`
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-grow: 0;
-    width: 20%;
-  }
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.lg}) {
-    flex-grow: 0;
-    width: 15%;
+    width: 13rem;
   }
 `;
 

@@ -18,6 +18,11 @@ export const songSlice = createSlice({
       state.songs.errors = '';
     },
 
+    getMySongsAction: (state) => {
+      state.songs.isLoading = true;
+      state.songs.errors = '';
+    },
+
     getSongByIdAction: (state, { payload: { id } }) => {
       state.songs.isLoading = false;
       state.songs.errors = '';
@@ -59,6 +64,7 @@ export const songSlice = createSlice({
 
 export const {
   getSongsAction,
+  getMySongsAction,
   getSongByIdAction,
   searchSongsAction,
   createSongAction,

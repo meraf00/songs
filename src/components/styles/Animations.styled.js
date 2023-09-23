@@ -9,3 +9,17 @@ export const spin = keyframes`
         transform: rotate(-360deg);
     }
 `;
+
+export const bounce = keyframes`
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0.2rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+`;
