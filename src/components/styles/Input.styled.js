@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
+import { Input } from '../Input';
 
-export const StyledInput = styled.input`
+export const StyledInput = styled(Input)`
   outline: none;
   background-color: ${({ theme }) => theme.colors.background};
   border: 1px solid ${({ theme }) => theme.colors.gray};

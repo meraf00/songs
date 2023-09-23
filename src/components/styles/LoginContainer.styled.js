@@ -4,8 +4,6 @@ import { spin } from './Animations.styled';
 export const LoginContainer = styled.div`
   position: relative;
   overflow: hidden;
-  width: 60%;
-  max-width: 23rem;
   margin: auto;
   padding: 0.1rem;
   border-radius: 10px;
@@ -50,5 +48,10 @@ export const LoginContainer = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 60%;
+    max-width: 23rem;
   }
 `;

@@ -6,5 +6,5 @@ export const FullScreenContainer = styled.div`
   align-content: center;
   justify-content: center;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
 `;

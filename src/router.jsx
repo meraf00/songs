@@ -1,7 +1,13 @@
 import App from './App';
 import { createBrowserRouter } from 'react-router-dom';
 import ProtectedRoute from './layout/ProtectedRoute';
-import { HomePage, LoginPage, SignupPage, PlaylistPage } from './pages';
+import {
+  HomePage,
+  LoginPage,
+  SignupPage,
+  PlaylistPage,
+  CreateMusicPage,
+} from './pages';
 
 const router = createBrowserRouter([
   {
@@ -26,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/new',
-        element: <ProtectedRoute>Create</ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <CreateMusicPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/edit/:id',

@@ -6,8 +6,7 @@ import { StyledCenter } from '../components/styles/Center.style';
 import { StyledSongList } from '../components/styles/SongList.style';
 import { StyledSongCard } from '../components/styles/SongCard.style';
 import { useDispatch, useSelector } from 'react-redux';
-import { getMySongsAction, getSongsAction } from '../store/songs/slice';
-import { AddSongCard } from '../components/AddSongCard';
+import { getMySongsAction } from '../store/songs/slice';
 import { StyledAddSongCard } from '../components/styles/AddSongCard.style';
 import { Link } from 'react-router-dom';
 
