@@ -18,6 +18,8 @@ const playerBar = css`
 `;
 
 export const PlayerBar = ({ song }) => {
+  // const audio = Audio(song.file);
+  // console.log(song, audio);
   return (
     <div css={playerBar}>
       <div

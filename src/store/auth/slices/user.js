@@ -5,7 +5,7 @@ const userInitialState = {
   user: {
     isLoggedIn: false,
     data: null,
-    isLoading: false,
+    isLoading: true,
     errors: '',
   },
 };

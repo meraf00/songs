@@ -12,10 +12,11 @@ const searchBar = css`
   max-width: 25rem;
 `;
 
-export const SearchBar = () => {
+export const SearchBar = ({ onSearch }) => {
   return (
-    <div css={searchBar}>
+    <form css={searchBar} onSubmit={onSearch}>
       <StyledInput
+        name="queryString"
         css={css`
           width: 100%;
           padding-top: 0.6rem;
@@ -36,6 +37,6 @@ export const SearchBar = () => {
           <FontAwesomeIcon icon={faSearch} />
         </StyledButton>
       </div>
-    </div>
+    </form>
   );
 };

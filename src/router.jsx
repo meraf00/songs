@@ -7,6 +7,7 @@ import {
   SignupPage,
   PlaylistPage,
   CreateMusicPage,
+  UpdateMusicPage,
 } from './pages';
 
 const router = createBrowserRouter([
@@ -40,7 +41,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/edit/:id',
-        element: <ProtectedRoute>Update</ProtectedRoute>,
+        element: (
+          <ProtectedRoute>
+            <UpdateMusicPage />
+          </ProtectedRoute>
+        ),
       },
       {
         path: '/:id',

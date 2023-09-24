@@ -7,7 +7,7 @@ import { StyledSongList } from '../components/styles/SongList.style';
 import { StyledSongCard } from '../components/styles/SongCard.style';
 import { useDispatch, useSelector } from 'react-redux';
 import { StyledAddSongCard } from '../components/styles/AddSongCard.style';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { getMySongsAction } from '../store/songs/slices/getMy';
 import { StyledConfirmDialog } from '../components/styles/ConfirmDialog.style';
 import { deleteSongAction } from '../store/songs/slices';
@@ -17,6 +17,7 @@ export const PlaylistPage = () => {
   const { data, isLoading } = useSelector((state) => state.mySongs.songs);
   const [showDialog, setShowDialog] = useState(false);
   const [songToDelete, setSongToDelete] = useState(null);
+  const navigate = useNavigate();
 
   const handlePlay = (event, song) => {
     event.preventDefault();
@@ -35,7 +36,8 @@ export const PlaylistPage = () => {
   const handleEdit = (event, song) => {
     event.preventDefault();
     event.stopPropagation();
-    console.log('edit');
+
+    navigate(`/edit/${song.id}`);
   };
 
   const deleteSong = () => {
