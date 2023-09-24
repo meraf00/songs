@@ -47,10 +47,6 @@ const router = createBrowserRouter([
           </ProtectedRoute>
         ),
       },
-      {
-        path: '/:id',
-        element: <>Detail</>,
-      },
     ],
   },
 ]);
