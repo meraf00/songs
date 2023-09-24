@@ -25,6 +25,7 @@ export const HomePage = () => {
   );
   const [showSearchResult, setShowSearchResult] = useState(false);
   const [queryString, setQueryString] = useState();
+  const player = useSelector((state) => state.player.player);
 
   useEffect(() => {
     dispatch(getSongsAction());
@@ -123,6 +124,7 @@ export const HomePage = () => {
                   key={song.id}
                   song={song}
                   onPlay={() => dispatch(setSongAction({ song }))}
+                  currentSong={player.song?.id === song.id}
                 />
               ))}
             </StyledSongList>

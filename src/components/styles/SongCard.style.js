@@ -11,6 +11,9 @@ export const StyledSongCard = styled(SongCard)`
   transition: all ease-in-out 0.2s;
   flex-grow: 1;
   position: relative;
+  border: 2px solid
+    ${({ theme, currentSong }) =>
+      currentSong ? theme.colors.blue : 'transparent'};
 
   &:hover {
     transform: translate(0, -0.3rem);

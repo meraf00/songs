@@ -105,7 +105,7 @@ export const PlayerBar = () => {
           flex-direction: column;
         `}
       >
-        <span>Title</span>
+        <span>{song.title}</span>
         <ProgressBar width="100%" onMouseDown={handleSeekPosition}>
           <Progress progress={progress} />
         </ProgressBar>

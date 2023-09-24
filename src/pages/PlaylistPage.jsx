@@ -11,19 +11,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import { getMySongsAction } from '../store/songs/slices/getMy';
 import { StyledConfirmDialog } from '../components/styles/ConfirmDialog.style';
 import { deleteSongAction } from '../store/songs/slices';
+import { setSongAction } from '../store/player/slice';
 
 export const PlaylistPage = () => {
   const dispatch = useDispatch();
   const { data, isLoading } = useSelector((state) => state.mySongs.songs);
+  const player = useSelector((state) => state.player.player);
   const [showDialog, setShowDialog] = useState(false);
   const [songToDelete, setSongToDelete] = useState(null);
   const navigate = useNavigate();
-
-  const handlePlay = (event, song) => {
-    event.preventDefault();
-    event.stopPropagation();
-    console.log('play', song);
-  };
 
   const handleDelete = (event, song) => {
     event.preventDefault();
@@ -79,9 +75,10 @@ export const PlaylistPage = () => {
                   key={song.id}
                   song={song}
                   showButtons={true}
-                  onPlay={(event) => handlePlay(event, song)}
+                  onPlay={() => dispatch(setSongAction({ song }))}
                   onDelete={(event) => handleDelete(event, song)}
                   onEdit={(event) => handleEdit(event, song)}
+                  currentSong={player.song?.id === song.id}
                 />
               ))}
             </StyledSongList>
