@@ -55,8 +55,9 @@ export const LoginPage = () => {
             <h2>Login</h2>
             <form onSubmit={handleLogin}>
               <div>
-                <StyledInput placeholder="Email" name="email" />
+                <StyledInput placeholder="Email" name="email" required />
                 <StyledInput
+                  minlength="8"
                   type="password"
                   placeholder="Password"
                   name="password"

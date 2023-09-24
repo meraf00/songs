@@ -13,7 +13,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 import { GET_USER, LOGIN, LOGOUT, SIGNUP } from './types';
 
 const instance = axios.create({
-  baseURL: 'http://192.168.1.6:5000/auth',
+  baseURL: 'https://ceasar.pythonanywhere.com/auth',
 });
 
 function* getUserSaga() {

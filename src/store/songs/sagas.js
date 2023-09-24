@@ -29,7 +29,7 @@ import get, {
 } from './slices/get';
 
 const instance = axios.create({
-  baseURL: 'http://192.168.1.6:5000/songs',
+  baseURL: 'https://ceasar.pythonanywhere.com/songs',
 });
 
 function* getSongsSaga({ payload }) {

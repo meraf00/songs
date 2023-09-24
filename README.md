@@ -5,8 +5,10 @@
 Users can create, update, delete and view and play songs.
 
 ## Live demo
-https://songs-alpha.vercel.com
 
+https://songs-alpha.vercel.app/
+
+Backend hosted [here](https://ceasar.pythonanywhere.com/songs).
 
 ## Installation
 

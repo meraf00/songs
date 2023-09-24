@@ -53,8 +53,9 @@ export const SignupPage = () => {
             <h2>Sign up</h2>
             <form onSubmit={handleSignup}>
               <div>
-                <StyledInput placeholder="Email" name="email" />
+                <StyledInput placeholder="Email" name="email" required />
                 <StyledInput
+                  minlength="8"
                   type="password"
                   placeholder="Password"
                   name="password"

@@ -18,6 +18,7 @@ export const SongForm = ({
           placeholder="Title"
           name="title"
           defaultValue={song?.title}
+          required
         />
       </div>
       <div>
@@ -25,6 +26,7 @@ export const SongForm = ({
           placeholder="Artist"
           name="artist"
           defaultValue={song?.artist}
+          required
         />
       </div>
       <div>
@@ -32,6 +34,7 @@ export const SongForm = ({
           placeholder="Album"
           name="album"
           defaultValue={song?.album}
+          required
         />
       </div>
       <div>
@@ -39,6 +42,7 @@ export const SongForm = ({
           placeholder="Year"
           name="release_date"
           defaultValue={song?.release_date}
+          required
         />
       </div>
       <div>
