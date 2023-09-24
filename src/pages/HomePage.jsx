@@ -16,6 +16,7 @@ import {
   faChevronRight,
 } from '@fortawesome/free-solid-svg-icons';
 import { StyledButton } from '../components/styles/Button.style';
+import { setSongAction } from '../store/player/slice';
 
 export const HomePage = () => {
   const dispatch = useDispatch();
@@ -118,7 +119,11 @@ export const HomePage = () => {
           ) : (
             <StyledSongList>
               {data.map((song) => (
-                <StyledSongCard key={song.id} song={song} />
+                <StyledSongCard
+                  key={song.id}
+                  song={song}
+                  onPlay={() => dispatch(setSongAction({ song }))}
+                />
               ))}
             </StyledSongList>
           )}

@@ -2,8 +2,15 @@
 
 import { css } from '@emotion/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
+import { faPause, faPlay, faStop } from '@fortawesome/free-solid-svg-icons';
 import { Progress, ProgressBar } from './styles/ProgressBar.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  pauseSongAction,
+  playSongAction,
+  stopSongAction,
+} from '../store/player/slice';
+import { useEffect, useState } from 'react';
 
 const playerBar = css`
   position: fixed;
@@ -17,9 +24,77 @@ const playerBar = css`
   gap: 2rem;
 `;
 
-export const PlayerBar = ({ song }) => {
-  // const audio = Audio(song.file);
-  // console.log(song, audio);
+export const PlayerBar = () => {
+  const { song, isPlaying } = useSelector((state) => state.player.player);
+  const dispatch = useDispatch();
+  const [audio, setAudio] = useState(null);
+  const [progress, setProgress] = useState('0');
+
+  useEffect(() => {
+    if (!song) return;
+
+    if (audio) {
+      audio.pause();
+    }
+
+    const _audio = new Audio(song.file);
+    _audio.loop = false;
+    setAudio(_audio);
+    setProgress('0');
+
+    _audio.play();
+
+    const updateTime = (event) => {
+      let percentProgress = (100 * _audio.currentTime) / _audio.duration;
+
+      if (percentProgress > 100) {
+        percentProgress = 100;
+      }
+
+      setProgress(`${percentProgress}%`);
+    };
+
+    _audio.addEventListener('timeupdate', updateTime);
+
+    return () => _audio.removeEventListener('timeupdate', updateTime);
+  }, [song]);
+
+  const handlePlay = () => {
+    if (audio) {
+      audio.play();
+    }
+    dispatch(playSongAction());
+  };
+
+  const handlePause = () => {
+    if (audio) {
+      audio.pause();
+    }
+    dispatch(pauseSongAction());
+  };
+
+  const handleStop = () => {
+    dispatch(stopSongAction());
+    if (audio) {
+      audio.pause();
+      setAudio(null);
+    }
+  };
+
+  const handleSeekPosition = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (!audio) return;
+
+    const { clientX } = event;
+    const { left, width } = event.target.getBoundingClientRect();
+    const percent = (clientX - left) / width;
+    const seekTime = audio.duration * percent;
+    audio.currentTime = seekTime;
+  };
+
+  if (!song) return;
+
   return (
     <div css={playerBar}>
       <div
@@ -31,12 +106,17 @@ export const PlayerBar = ({ song }) => {
         `}
       >
         <span>Title</span>
-        <ProgressBar width="100%">
-          <Progress progress="40%" />
+        <ProgressBar width="100%" onMouseDown={handleSeekPosition}>
+          <Progress progress={progress} />
         </ProgressBar>
       </div>
-      <FontAwesomeIcon icon={faPlay} />
-      <FontAwesomeIcon icon={faStop} />
+      {isPlaying ? (
+        <FontAwesomeIcon icon={faPause} onClick={handlePause} />
+      ) : (
+        <FontAwesomeIcon icon={faPlay} onClick={handlePlay} />
+      )}
+
+      <FontAwesomeIcon icon={faStop} onClick={handleStop} />
     </div>
   );
 };
