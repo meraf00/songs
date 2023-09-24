@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { Center } from '../Center';
 
 export const StyledCenter = styled(Center)`
-  display: flex;
+  display: flex;  
 
   align-items: center;
   justify-content: center;

@@ -5,6 +5,7 @@ import { bounce } from './Animations.styled';
 export const StyledLoading = styled(Loading)`
   display: flex;
   gap: 5px;
+  width: 30px;
 
   & div {
     border-radius: 999px;

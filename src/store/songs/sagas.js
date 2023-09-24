@@ -7,12 +7,16 @@ import {
   getMySongsErrorAction,
   createSongErrorAction,
   createSongSuccessAction,
+  deleteSongErrorAction,
+  deleteSongSuccessAction,
+  getMySongsAction,
 } from './slices';
 import { put, takeLatest } from 'redux-saga/effects';
-import { CREATE_SONG, GET_MY_SONGS, GET_SONGS } from './types';
+import { CREATE_SONG, DELETE_SONG, GET_MY_SONGS, GET_SONGS } from './types';
+import get from './slices/get';
 
 const instance = axios.create({
-  baseURL: 'http://192.168.1.2:5000/songs',
+  baseURL: 'http://192.168.1.6:5000/songs',
 });
 
 function* getSongsSaga() {
@@ -70,10 +74,34 @@ function* createSongSaga({ payload }) {
   }
 }
 
+function* deleteSongSaga({ payload: { song } }) {
+  if (!localStorage.getItem('token')) {
+    yield put(createSongErrorAction("You're not logged in"));
+  }
+
+  try {
+    const response = yield instance.delete(`/${song.id}`, {
+      headers: {
+        Authorization: localStorage.getItem('token'),
+      },
+    });
+
+    if (response.status === 200) {
+      yield put(getMySongsAction());
+      yield put(deleteSongSuccessAction(response.data));
+    } else {
+      yield put(deleteSongErrorAction(response.data.message));
+    }
+  } catch (error) {
+    yield put(deleteSongErrorAction(error));
+  }
+}
+
 function* watchSongs() {
   yield takeLatest(GET_SONGS, getSongsSaga);
   yield takeLatest(GET_MY_SONGS, getMySongsSaga);
   yield takeLatest(CREATE_SONG, createSongSaga);
+  yield takeLatest(DELETE_SONG, deleteSongSaga);
 }
 
 export default watchSongs;

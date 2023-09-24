@@ -4,8 +4,9 @@ import { Button } from '../Button';
 export const StyledButton = styled(Button)`
   border: none;
   border-radius: ${({ theme }) => theme.dimensions.borderRadius};
-  background-color: ${({ theme }) => theme.colors.blue};
-  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme, background }) =>
+    background ?? theme.colors.blue};
+  color: ${({ theme, color }) => color ?? theme.colors.white};
   padding: 8px 20px;
 
   &:hover {

@@ -10,6 +10,7 @@ export const StyledSongCard = styled(SongCard)`
   cursor: pointer;
   transition: all ease-in-out 0.2s;
   flex-grow: 1;
+  position: relative;
 
   &:hover {
     transform: translate(0, -0.3rem);

@@ -29,6 +29,7 @@ const theme = {
     black: '#000',
     // orange: '#ff631c',
     // darkOrange: '#ff501d',
+    red: '#dd0000',
     background: '#181818',
     blue: '#376aed',
     saturatedBlue: '#2151cd',

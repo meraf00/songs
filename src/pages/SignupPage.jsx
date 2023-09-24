@@ -9,7 +9,7 @@ import { createUserAction } from '../store/auth/slices';
 import { StyledBanner } from '../components/styles/Banner.style';
 
 export const SignupPage = () => {
-  const { data, errors } = useSelector((state) => state.signup.user);
+  const { data, errors, isLoading } = useSelector((state) => state.signup.user);
 
   const dispatch = useDispatch();
 
@@ -60,7 +60,7 @@ export const SignupPage = () => {
                   name="password"
                 />
               </div>
-              <StyledButton>Sign up</StyledButton>
+              <StyledButton disabled={isLoading}>Sign up</StyledButton>
             </form>
           </div>
         </LoginContainer>

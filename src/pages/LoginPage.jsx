@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { StyledButton } from '../components/styles/Button.style';
+import { StyledCenter } from '../components/styles/Center.style';
+import { StyledLoading } from '../components/styles/Loading.style';
 import { FullScreenContainer } from '../components/styles/Container.styled';
 import { StyledInput } from '../components/styles/Input.styled';
 import { LoginContainer } from '../components/styles/LoginContainer.styled';
@@ -9,7 +11,7 @@ import { loginAction } from '../store/auth/slices';
 import { StyledBanner } from '../components/styles/Banner.style';
 
 export const LoginPage = () => {
-  const { data, errors } = useSelector((state) => state.login.user);
+  const { data, errors, isLoading } = useSelector((state) => state.login.user);
 
   const dispatch = useDispatch();
 
@@ -60,7 +62,8 @@ export const LoginPage = () => {
                   name="password"
                 />
               </div>
-              <StyledButton>Login</StyledButton>
+
+              <StyledButton disabled={isLoading}>Login</StyledButton>
             </form>
           </div>
         </LoginContainer>

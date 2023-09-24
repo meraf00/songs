@@ -4,7 +4,7 @@ import { AUTH } from '../types';
 const loginInitialState = {
   user: {
     data: null,
-    isLoading: true,
+    isLoading: false,
     errors: '',
   },
 };
