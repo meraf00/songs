@@ -1,16 +1,17 @@
 # Music app
 
+## Live demo
+
+https://songs-alpha.vercel.app/
+
 ## Description
 
 Users can create, update, delete and view and play songs.
 
 ## Features
+
 - All users can view and play songs.
 - Logged in users can create, update and delete songs.
-
-## Live demo
-
-https://songs-alpha.vercel.app/
 
 Backend hosted [here](https://ceasar.pythonanywhere.com/songs).
 
